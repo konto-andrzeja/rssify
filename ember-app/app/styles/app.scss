@@ -2,11 +2,6 @@ ul {
   list-style-type: none;
 }
 
-a {
-  text-decoration: none;
-  color: whitesmoke;
-}
-
 html, body, .ember-view, .full-height {
   height: 100%;
 }
@@ -19,9 +14,19 @@ html, body, .ember-view, .full-height {
 
   .nav-pages {
     text-align: center;
+
+    a {
+      text-decoration: none;
+      color: whitesmoke;
+    }
   }
 }
 
 .main {
   padding: 1em 3em;
+}
+
+.open-url-tip {
+  display: inline;
+  margin-left: 1em;
 }
