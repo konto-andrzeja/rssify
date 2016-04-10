@@ -1,51 +1,21 @@
 <form class="form-horizontal" role="form">
   <fieldset class="form-group">
     <legend>Page</legend>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="page-url">url:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="page-url" placeholder="Put page url here" value="{{page.url}}">
-      </div>
-    </div>
+    {{page-input id='page-url' label='url' placeholder='Put page url here' value=page.url}}
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <a href="#" target="_blank" class="btn btn-default">Open url</a>
         <p class="open-url-tip">Using <a href="http://selectorgadget.com/" target="_blank">SelectorGadget</a> makes getting CSS selectors easy.</p>
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="page-title">title:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="page-title" placeholder="Leave blank to fill automatically" value="{{page.cssSelectors.title}}">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="page-description">description:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="page-description" placeholder="Leave blank to fill automatically" value="{{page.cssSelectors.description}}">
-      </div>
-    </div>
+    {{page-input id='page-title' label='title' placeholder='Leave blank to fill automatically' value=page.cssSelectors.title}}
+    {{page-input id='page-description' label='description' placeholder='Leave blank to fill automatically' value=page.cssSelectors.description}}
   </fieldset>
   <fieldset class="form-group">
     <legend>Article</legend>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="article-url">url:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="article-url" placeholder="Put CSS selector here" value="{{page.cssSelectors.article.url}}">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="article-title">title:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="article-title" placeholder="Put CSS selector here" value="{{page.cssSelectors.article.title}}">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="article-description">description:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="article-description" placeholder="Put CSS selector here" value="{{page.cssSelectors.article.description}}">
-      </div>
-    </div>
+    {{page-input id='article-url' label='url' placeholder='Put CSS selector here' value=page.cssSelectors.article.url}}
+    {{page-input id='article-title' label='title' placeholder='Put CSS selector here' value=page.cssSelectors.article.title}}
+    {{page-input id='article-description' label='description' placeholder='Put CSS selector here' value=page.cssSelectors.article.description}}
   </fieldset>
   <div class="form-group">
     <div class="col-sm-12 text-center">
