@@ -1,21 +1,21 @@
 <form class="form-horizontal" role="form">
   <fieldset class="form-group">
     <legend>Page</legend>
-    {{page-input id='page-url' label='url' placeholder='Put page url here' value=page.url}}
+    {{page-input inputId='page-url' label='url' placeholder='Put page url here' value=page.url}}
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <a href="#" target="_blank" class="btn btn-default">Open url</a>
         <p class="open-url-tip">Using <a href="http://selectorgadget.com/" target="_blank">SelectorGadget</a> makes getting CSS selectors easy.</p>
       </div>
     </div>
-    {{page-input id='page-title' label='title' placeholder='Leave blank to fill automatically' value=page.cssSelectors.title}}
-    {{page-input id='page-description' label='description' placeholder='Leave blank to fill automatically' value=page.cssSelectors.description}}
+    {{page-input inputId='page-title' label='title' placeholder='Leave blank to fill automatically' value=page.cssSelectors.title}}
+    {{page-input inputId='page-description' label='description' placeholder='Leave blank to fill automatically' value=page.cssSelectors.description}}
   </fieldset>
   <fieldset class="form-group">
     <legend>Article</legend>
-    {{page-input id='article-url' label='url' placeholder='Put CSS selector here' value=page.cssSelectors.article.url}}
-    {{page-input id='article-title' label='title' placeholder='Put CSS selector here' value=page.cssSelectors.article.title}}
-    {{page-input id='article-description' label='description' placeholder='Put CSS selector here' value=page.cssSelectors.article.description}}
+    {{page-input inputId='article-url' label='url' placeholder='Put CSS selector here' value=page.cssSelectors.article.url}}
+    {{page-input inputId='article-title' label='title' placeholder='Put CSS selector here' value=page.cssSelectors.article.title}}
+    {{page-input inputId='article-description' label='description' placeholder='Put CSS selector here' value=page.cssSelectors.article.description}}
   </fieldset>
   <div class="form-group">
     <div class="col-sm-12 text-center">
