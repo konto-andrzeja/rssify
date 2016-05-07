@@ -4,13 +4,9 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   name: attr('string'),
   url: attr('string'),
-  cssSelectors: {
-    title: attr('string'),
-    description: attr('string'),
-    article: {
-      url: attr('string'),
-      title: attr('string'),
-      description: attr('string'),
-    }
-  }
+  titleCssSel: attr('string'),
+  descCssSel: attr('string'),
+  artUrlCssSel: attr('string'),
+  artTitleCssSel: attr('string'),
+  artDescCssSel: attr('string'),
 });
