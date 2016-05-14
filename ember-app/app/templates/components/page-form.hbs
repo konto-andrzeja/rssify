@@ -1,10 +1,10 @@
 <form class="form-horizontal" role="form">
   <fieldset class="form-group">
     <legend>Page</legend>
-    {{page-input inputId='page-url' label='url' placeholder='Put page url here' value=page.url}}
+    {{page-input inputId='page-url' label='url' placeholder='Put page url here' value=page.url onKeyUp=(action 'isUrlValid')}}
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <a href="#" target="_blank" class="btn btn-default">Open url</a>
+        <a href="{{page.url}}" target="_blank" class="btn btn-default{{if isUrlValid "" " disabled"}}">Open url</a>
         <p class="open-url-tip">Using <a href="http://selectorgadget.com/" target="_blank">SelectorGadget</a> makes getting CSS selectors easy.</p>
       </div>
     </div>
