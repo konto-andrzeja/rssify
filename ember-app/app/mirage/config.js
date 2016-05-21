@@ -15,4 +15,10 @@ export default function() {
       }
     };
   });
+
+  this.del('/pages/:id', (db, request) => {
+    let id = request.params.id;
+    db.pages.remove(id);
+    return {};
+  }, 204);
 }
