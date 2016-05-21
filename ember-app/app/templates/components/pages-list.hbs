@@ -1,6 +1,9 @@
 <ul class="nav nav-pills nav-stacked nav-pages">
   {{#each pages as |page|}}
-    <li>{{#link-to "pages.show" page}}{{page.name}}{{/link-to}}</li>
+    <li>
+      {{#link-to "pages.show" page}}{{page.name}}{{/link-to}}
+      <a href="#" class="btn btn-danger btn-del-page">-</a>
+    </li>
   {{/each}}
   <li><a href="#">Add a new page</a></li>
 </ul>

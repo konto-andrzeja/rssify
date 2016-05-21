@@ -11,15 +11,37 @@ html, body, .ember-view, .full-height {
   padding: 0;
   margin: 0;
 
-  .nav-pages {
-    text-align: center;
+  .nav-pages li {
+    position: relative;
 
     a {
+      text-align: center;
       text-decoration: none;
       color: #555555;
 
       &.active {
         background: whitesmoke;
+      }
+    }
+
+    .btn-del-page {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 20%;
+      color: whitesmoke;
+    }
+
+    &:hover {
+      background: whitesmoke;
+
+      .btn-del-page {
+        display: block;
+
+        &:hover {
+          background: darkred;
+        }
       }
     }
   }
