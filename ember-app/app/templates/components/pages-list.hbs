@@ -1,9 +1,11 @@
 <ul class="nav nav-pills nav-stacked nav-pages">
   {{#each pages as |page|}}
-    <li>
-      {{#link-to "pages.show" page}}{{page.name}}{{/link-to}}
-      <a class="btn btn-danger btn-del-page" {{action 'deletePage' page}}>-</a>
-    </li>
+    {{#unless page.isNew}}
+      <li>
+        {{#link-to 'pages.show' page}}{{page.name}}{{/link-to}}
+        <a class="btn btn-danger btn-del-page" {{action 'deletePage' page}}>-</a>
+      </li>
+    {{/unless}}
   {{/each}}
-  <li><a href="#">Add a new page</a></li>
+  <li>{{#link-to 'pages.new'}}Add a new page{{/link-to}}</li>
 </ul>

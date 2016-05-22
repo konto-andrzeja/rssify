@@ -1,4 +1,16 @@
 export default function() {
+  this.post('/pages', function(db, request) {
+    var attrs = JSON.parse(request.requestBody).page;
+    var page = db.pages.insert(attrs);
+    return {
+      data: {
+        type: 'pages',
+        id: page.id,
+        attributes: attrs
+      }
+    };
+  });
+
   this.get('/pages', function(db) {
     return {
       data: db.pages.map(attrs => ({ type: 'pages', id: attrs.id, attributes: attrs }))
