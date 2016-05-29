@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+5.times do |index|
+  domain_name = Faker::Internet.domain_name
+  Page.create({
+                name: domain_name,
+                url: Faker::Internet.url(domain_name),
+                title_css_sel: ".title-#{index}",
+                desc_css_sel: ".description-#{index}",
+                art_url_css_sel: ".url-#{index}",
+                art_title_css_sel: ".title-#{index}",
+                art_desc_css_sel: ".description-#{index}",
+                art_pub_date_css_sel: ".pubDate-#{index}"
+              })
+end
