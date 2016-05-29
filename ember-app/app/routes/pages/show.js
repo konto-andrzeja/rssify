@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Base from './base';
 
-export default Ember.Route.extend({
+export default Base.extend({
   model(params) {
     return this.store.findRecord('page', params.id);
   }
