@@ -3,7 +3,7 @@
     {{#unless page.isNew}}
       <li>
         {{#link-to 'pages.show' page}}{{page.name}}{{/link-to}}
-        <a class="btn btn-danger btn-del-page" {{action 'deletePage' page}}>-</a>
+        <a class="btn btn-danger btn-del-page" {{action 'onDeleteClick' page}}>-</a>
       </li>
     {{/unless}}
   {{/each}}
