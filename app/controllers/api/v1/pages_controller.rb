@@ -1,4 +1,9 @@
 class Api::V1::PagesController < ApplicationController
+  def feed
+    @feed = GenerateRss.new(page).call
+    render layout: false
+  end
+
   def index
     render json: Page.all
   end
@@ -8,11 +13,20 @@ class Api::V1::PagesController < ApplicationController
   end
 
   def create
-    render json: Page.create(page_params)
+    @page = Page.new(page_params)
+    if @page.save && GenerateRss.new(@page).call
+      render json: @page
+    else
+      render json: @page.errors.full_messages, root: 'errors', status: :unprocessable_entity
+    end
   end
 
   def update
-    render json: page.update(page_params.symbolize_keys)
+    if page.update(page_params) && GenerateRss.new(page).call
+      render json: page
+    else
+      render json: page.errors.full_messages, root: 'errors', status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -22,7 +36,7 @@ class Api::V1::PagesController < ApplicationController
   private
 
   def page
-    Page.find(params[:id])
+    @page ||= Page.find(params[:id])
   end
 
   def page_params
