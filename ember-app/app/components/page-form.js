@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   },
   actions: {
     onSubmitClick(page) {
+      this.set('page.successMessage', '');
       this.sendAction('savePage', page);
     },
     isUrlValid() {

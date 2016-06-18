@@ -6,7 +6,10 @@ export default Base.extend({
   },
   actions: {
     savePage(page) {
-      this._super(page).then(() => this.transitionTo('pages.show', page.id));
+      this._super(page).then(() => {
+        this.transitionTo('pages.show', page.id);
+        page.set('successMessage', 'Feed is correctly generated!');
+      });
     }
   }
 });

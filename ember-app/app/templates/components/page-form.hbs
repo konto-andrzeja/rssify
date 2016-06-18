@@ -24,3 +24,14 @@
     </div>
   </div>
 </form>
+<div class="row">
+  {{#if page.successMessage}}
+    <div class="alert alert-success col-sm-12">{{page.successMessage}}</div>
+  {{else}}
+    {{#each page.errors.messages as |message|}}
+      <div class="alert alert-danger col-sm-12">
+        {{message}}
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
