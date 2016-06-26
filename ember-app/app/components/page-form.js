@@ -3,15 +3,15 @@ import Validator from 'npm:validator';
 
 export default Ember.Component.extend({
   didRender() {
-    this.send('isUrlValid');
+    this.send('isUrlInvalid');
   },
   actions: {
     onSubmitClick(page) {
       this.set('page.successMessage', '');
       this.sendAction('savePage', page);
     },
-    isUrlValid() {
-      this.set('isUrlValid', Validator.isURL(this.get('page.url')));
+    isUrlInvalid() {
+      this.set('isUrlInvalid', !Validator.isURL(this.get('page.url')));
     }
   }
 });

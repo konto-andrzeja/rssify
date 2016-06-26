@@ -2,10 +2,10 @@
   <fieldset class="form-group">
     <legend>Page</legend>
     {{page-input inputId='page-name' label='name' placeholder='Put page name here' value=page.name}}
-    {{page-input inputId='page-url' label='url' placeholder='Put page url here' value=page.url onKeyUp=(action 'isUrlValid')}}
+    {{page-input inputId='page-url' label='url' placeholder='Put page url here' value=page.url onKeyUp=(action 'isUrlInvalid')}}
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <a href="{{page.url}}" target="_blank" class="btn btn-default{{if isUrlValid "" " disabled"}}">Open url</a>
+        <a href="{{page.url}}" target="_blank" class="btn btn-default{{if isUrlInvalid " disabled" ""}}">Open url</a>
         <p class="open-url-tip">Using <a href="http://selectorgadget.com/" target="_blank">SelectorGadget</a> makes getting CSS selectors easy.</p>
       </div>
     </div>
@@ -20,7 +20,7 @@
   </fieldset>
   <div class="form-group">
     <div class="col-sm-12 text-center">
-      <button type="submit" class="btn btn-default" {{action 'onSubmitClick' page}}>Save page and build RSS feed</button>
+      <button type="submit" class="btn btn-default" {{action 'onSubmitClick' page}} disabled={{isUrlInvalid}}>Save page and build RSS feed</button>
     </div>
   </div>
 </form>
