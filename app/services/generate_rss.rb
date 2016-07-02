@@ -5,14 +5,19 @@ class GenerateRss
   end
 
   def call
-    @browser.visit(@page.url)
-    result = {
-      title: fetch_title,
-      description: fetch_description,
-      url: @page.url,
-      articles: fetch_articles
-    }
-    @page.errors.empty? ? result : nil
+    begin
+      @browser.visit(@page.url)
+      result = {
+        title: fetch_title,
+        description: fetch_description,
+        url: @page.url,
+        articles: fetch_articles
+      }
+      @page.errors.empty? ? result : nil
+    rescue Exception => e
+      @page.errors[:exception] << ": #{e.message}"
+      nil
+    end
   end
 
   private
