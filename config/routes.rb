@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '/(*path)' => 'root#index', as: :root, format: :html
 end

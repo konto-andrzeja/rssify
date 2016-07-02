@@ -3,10 +3,19 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  var env = EmberApp.env() || 'development';
   var app = new EmberApp(defaults, {
     // Add options here
     sassOptions: {
       extension: 'scss'
+    },
+    fingerprint: {
+      enabled: true,
+      prepend: (env === 'development') ? 'http://localhost:4200/' : 'https://amazonaws.com/bucket/'
+    },
+    emberCLIDeploy: {
+      runOnPostBuild: (env === 'development') ? 'development-post-build' : false,
+      shouldActivate: true
     }
   });
 
