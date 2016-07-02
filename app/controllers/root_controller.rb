@@ -14,7 +14,9 @@ class RootController < ApplicationController
   end
 
   def process_html(index)
-    return index unless Rails.env.development?
-    index.sub!('/ember-cli-live-reload', 'http://localhost:4200/ember-cli-live-reload')
+    if Rails.env.development?
+      index.sub!('/ember-cli-live-reload', 'http://localhost:4200/ember-cli-live-reload')
+    end
+    index.sub!(/CSRF_TOKEN/, form_authenticity_token)
   end
 end
