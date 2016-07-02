@@ -50,6 +50,10 @@ GEM
       xpath (~> 2.0)
     cliver (0.3.2)
     concurrent-ruby (1.0.2)
+    config (1.2.1)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0, >= 1.0.1)
+    deep_merge (1.0.1)
     erubis (2.7.0)
     faker (1.6.3)
       i18n (~> 0.5)
@@ -130,6 +134,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   capybara
+  config
   faker
   launchy
   pg (~> 0.15)
@@ -138,4 +143,4 @@ DEPENDENCIES
   rails (= 4.2.6)
 
 BUNDLED WITH
-   1.11.2
+   1.12.3
