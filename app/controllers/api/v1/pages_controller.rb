@@ -14,7 +14,7 @@ class Api::V1::PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-    if @page.save && GenerateRss.new(@page).call
+    if GenerateRss.new(@page).call && @page.save
       render json: @page
     else
       render json: @page.errors.full_messages, root: 'errors', status: :unprocessable_entity
@@ -22,7 +22,7 @@ class Api::V1::PagesController < ApplicationController
   end
 
   def update
-    if page.update(page_params) && GenerateRss.new(page).call
+    if GenerateRss.new(page).call && page.update(page_params)
       render json: page
     else
       render json: page.errors.full_messages, root: 'errors', status: :unprocessable_entity
