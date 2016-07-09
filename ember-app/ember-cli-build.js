@@ -3,7 +3,7 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var env = EmberApp.env() || 'development';
+  var isProduction = EmberApp.env() === 'production';
   var app = new EmberApp(defaults, {
     // Add options here
     sassOptions: {
@@ -11,12 +11,14 @@ module.exports = function(defaults) {
     },
     fingerprint: {
       enabled: true,
-      prepend: (env === 'development') ? 'http://localhost:4200/' : 'https://amazonaws.com/bucket/'
+      prepend: isProduction ? 'http://rssify.s3-website.eu-central-1.amazonaws.com/' : 'http://localhost:4200/'
     },
     emberCLIDeploy: {
-      runOnPostBuild: (env === 'development') ? 'development-post-build' : false,
+      runOnPostBuild: isProduction ? false : 'development-post-build',
       shouldActivate: true
-    }
+    },
+    minifyCSS: { enabled: isProduction },
+    minifyJS: { enabled: isProduction }
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -1,5 +1,6 @@
 var VALID_DEPLOY_TARGETS = [ //update these to match what you call your deployment targets
-  'development-post-build'
+  'development-post-build',
+  'production'
 ];
 
 module.exports = function(deployTarget) {
@@ -21,6 +22,28 @@ module.exports = function(deployTarget) {
       distDir: function(context) {
         return context.commandOptions.buildDir;
       }
+    };
+  }
+
+  if (deployTarget === 'production') {
+    ENV.build = {
+      environment: 'production'
+    };
+    ENV.redis = {
+      keyPrefix: 'rssify:index',
+      allowOverwrite: true,
+      host: 'localhost'
+    };
+    ENV['ssh-tunnel'] = {
+      username: process.env['EC2_SSH_USERNAME'],
+      host: process.env['EC2_HOST'],
+      dstHost: process.env['REDIS_HOST']
+    };
+    ENV.s3 = {
+      accessKeyId: process.env['AWS_ACCESS_KEY'],
+      secretAccessKey: process.env['AWS_SECRET_KEY'],
+      bucket: 'rssify',
+      region: 'eu-central-1'
     };
   }
 
